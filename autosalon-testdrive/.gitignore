@@ -1,0 +1,19 @@
+# Сборка Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code / Eclipse
+.vscode/
+.classpath
+.project
+.settings/
+
+# Файлы, которые создаёт программа при экспорте (пример экспорта лежит в docs/)
+export/
+
+# Локальные настройки подключения рядом с jar
+/db.properties

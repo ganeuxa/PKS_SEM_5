@@ -1,0 +1,10 @@
+# Настройки IDE, если открыть в ней корень репозитория
+.idea/
+*.iml
+.vscode/
+out/
+
+# Системные файлы
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="480" viewBox="0 0 1240 480" font-family="Segoe UI, Arial, sans-serif">
+  <title>ER-диаграмма базы данных autosalon</title>
+  <style>
+    .box { fill: #ffffff; stroke: #1f3a68; stroke-width: 1.5; }
+    .head { fill: #1f3a68; }
+    .head-title { fill: #ffffff; font-size: 15px; font-weight: 700; }
+    .head-sub { fill: #c9d6ee; font-size: 12px; }
+    .row-alt { fill: #f2f5fa; }
+    .col { fill: #1b1b1b; font-size: 13px; }
+    .type { fill: #4a5568; font-size: 12px; }
+    .flags { fill: #6b7280; font-size: 11px; }
+    .pk { fill: #b7791f; font-size: 11px; font-weight: 700; }
+    .fk { fill: #2b6cb0; font-size: 11px; font-weight: 700; }
+    .rel { fill: none; stroke: #1f3a68; stroke-width: 1.6; }
+    .rel-label { fill: #1f3a68; font-size: 12px; font-weight: 600; }
+    .note { fill: #4a5568; font-size: 12px; }
+    .caption { fill: #1b1b1b; font-size: 18px; font-weight: 700; }
+  </style>
+
+  <rect width="1240" height="480" fill="#ffffff"/>
+  <text x="30" y="34" class="caption">ER-диаграмма базы данных autosalon (PostgreSQL)</text>
+
+  <!-- ============ clients ============ -->
+  <g transform="translate(30,110)">
+    <rect class="box" width="320" height="226" rx="6"/>
+    <path class="head" d="M6 0 H314 A6 6 0 0 1 320 6 V44 H0 V6 A6 6 0 0 1 6 0 Z"/>
+    <text x="12" y="20" class="head-title">clients</text>
+    <text x="12" y="36" class="head-sub">Клиенты автосалона</text>
+    <rect class="row-alt" x="1" y="70" width="318" height="26"/>
+    <rect class="row-alt" x="1" y="122" width="318" height="26"/>
+    <rect class="row-alt" x="1" y="174" width="318" height="26"/>
+    <text x="10" y="62" class="pk">PK</text><text x="38" y="62" class="col">id</text><text x="140" y="62" class="type">BIGINT</text><text x="232" y="62" class="flags">IDENTITY</text>
+    <text x="38" y="88" class="col">full_name</text><text x="140" y="88" class="type">VARCHAR(150)</text><text x="232" y="88" class="flags">NN, CK</text>
+    <text x="38" y="114" class="col">phone</text><text x="140" y="114" class="type">VARCHAR(12)</text><text x="232" y="114" class="flags">NN, UQ, CK</text>
+    <text x="38" y="140" class="col">email</text><text x="140" y="140" class="type">VARCHAR(100)</text><text x="232" y="140" class="flags">UQ, CK</text>
+    <text x="38" y="166" class="col">birth_date</text><text x="140" y="166" class="type">DATE</text><text x="232" y="166" class="flags">NN, CK</text>
+    <text x="38" y="192" class="col">license_number</text><text x="140" y="192" class="type">VARCHAR(10)</text><text x="232" y="192" class="flags">NN, UQ, CK</text>
+    <text x="38" y="218" class="col">registered_at</text><text x="140" y="218" class="type">TIMESTAMP</text><text x="232" y="218" class="flags">NN</text>
+  </g>
+
+  <!-- ============ test_drive_requests ============ -->
+  <g transform="translate(440,60)">
+    <rect class="box" width="360" height="278" rx="6"/>
+    <path class="head" d="M6 0 H354 A6 6 0 0 1 360 6 V44 H0 V6 A6 6 0 0 1 6 0 Z"/>
+    <text x="12" y="20" class="head-title">test_drive_requests</text>
+    <text x="12" y="36" class="head-sub">Заявки на тест-драйв (основная сущность)</text>
+    <rect class="row-alt" x="1" y="70" width="358" height="26"/>
+    <rect class="row-alt" x="1" y="122" width="358" height="26"/>
+    <rect class="row-alt" x="1" y="174" width="358" height="26"/>
+    <rect class="row-alt" x="1" y="226" width="358" height="26"/>
+    <text x="10" y="62" class="pk">PK</text><text x="38" y="62" class="col">id</text><text x="160" y="62" class="type">BIGINT</text><text x="262" y="62" class="flags">IDENTITY</text>
+    <text x="10" y="88" class="fk">FK</text><text x="38" y="88" class="col">client_id</text><text x="160" y="88" class="type">BIGINT</text><text x="262" y="88" class="flags">NN</text>
+    <text x="10" y="114" class="fk">FK</text><text x="38" y="114" class="col">car_id</text><text x="160" y="114" class="type">BIGINT</text><text x="262" y="114" class="flags">NN</text>
+    <text x="38" y="140" class="col">scheduled_at</text><text x="160" y="140" class="type">TIMESTAMP</text><text x="262" y="140" class="flags">NN</text>
+    <text x="38" y="166" class="col">duration_minutes</text><text x="160" y="166" class="type">INTEGER</text><text x="262" y="166" class="flags">NN, CK 15-120</text>
+    <text x="38" y="192" class="col">status</text><text x="160" y="192" class="type">VARCHAR(20)</text><text x="262" y="192" class="flags">NN, CK</text>
+    <text x="38" y="218" class="col">comment</text><text x="160" y="218" class="type">VARCHAR(500)</text><text x="262" y="218" class="flags"></text>
+    <text x="38" y="244" class="col">created_at</text><text x="160" y="244" class="type">TIMESTAMP</text><text x="262" y="244" class="flags">NN</text>
+    <text x="38" y="270" class="col">updated_at</text><text x="160" y="270" class="type">TIMESTAMP</text><text x="262" y="270" class="flags">NN, CK</text>
+  </g>
+
+  <!-- ============ cars ============ -->
+  <g transform="translate(890,112)">
+    <rect class="box" width="320" height="252" rx="6"/>
+    <path class="head" d="M6 0 H314 A6 6 0 0 1 320 6 V44 H0 V6 A6 6 0 0 1 6 0 Z"/>
+    <text x="12" y="20" class="head-title">cars</text>
+    <text x="12" y="36" class="head-sub">Автомобили автосалона</text>
+    <rect class="row-alt" x="1" y="70" width="318" height="26"/>
+    <rect class="row-alt" x="1" y="122" width="318" height="26"/>
+    <rect class="row-alt" x="1" y="174" width="318" height="26"/>
+    <rect class="row-alt" x="1" y="226" width="318" height="25"/>
+    <text x="10" y="62" class="pk">PK</text><text x="38" y="62" class="col">id</text><text x="150" y="62" class="type">BIGINT</text><text x="242" y="62" class="flags">IDENTITY</text>
+    <text x="38" y="88" class="col">brand</text><text x="150" y="88" class="type">VARCHAR(50)</text><text x="242" y="88" class="flags">NN</text>
+    <text x="38" y="114" class="col">model</text><text x="150" y="114" class="type">VARCHAR(50)</text><text x="242" y="114" class="flags">NN</text>
+    <text x="38" y="140" class="col">manufacture_year</text><text x="150" y="140" class="type">INTEGER</text><text x="242" y="140" class="flags">NN, CK</text>
+    <text x="38" y="166" class="col">vin</text><text x="150" y="166" class="type">VARCHAR(17)</text><text x="242" y="166" class="flags">NN, UQ, CK</text>
+    <text x="38" y="192" class="col">color</text><text x="150" y="192" class="type">VARCHAR(30)</text><text x="242" y="192" class="flags">NN</text>
+    <text x="38" y="218" class="col">price</text><text x="150" y="218" class="type">NUMERIC(12,2)</text><text x="242" y="218" class="flags">NN, CK &gt; 0</text>
+    <text x="38" y="244" class="col">status</text><text x="150" y="244" class="type">VARCHAR(20)</text><text x="242" y="244" class="flags">NN, CK</text>
+  </g>
+
+  <!-- clients.id (1) -> test_drive_requests.client_id (N) -->
+  <path class="rel" d="M350 167 H395 V143 H440"/>
+  <line class="rel" x1="358" y1="159" x2="358" y2="175"/>
+  <line class="rel" x1="364" y1="159" x2="364" y2="175"/>
+  <line class="rel" x1="426" y1="143" x2="440" y2="134"/>
+  <line class="rel" x1="426" y1="143" x2="440" y2="152"/>
+  <circle cx="415" cy="143" r="5" fill="#ffffff" stroke="#1f3a68" stroke-width="1.6"/>
+  <text x="366" y="132" class="rel-label">1 : N</text>
+
+  <!-- cars.id (1) -> test_drive_requests.car_id (N) -->
+  <path class="rel" d="M890 169 H800"/>
+  <line class="rel" x1="882" y1="161" x2="882" y2="177"/>
+  <line class="rel" x1="876" y1="161" x2="876" y2="177"/>
+  <line class="rel" x1="814" y1="169" x2="800" y2="160"/>
+  <line class="rel" x1="814" y1="169" x2="800" y2="178"/>
+  <circle cx="825" cy="169" r="5" fill="#ffffff" stroke="#1f3a68" stroke-width="1.6"/>
+  <text x="824" y="152" class="rel-label">1 : N</text>
+
+  <!-- Пояснения -->
+  <text x="30" y="388" class="note">Связи: один клиент оформляет много заявок (client_id → clients.id); один автомобиль участвует во многих тест-драйвах (car_id → cars.id).</text>
+  <text x="30" y="408" class="note">Внешние ключи с ON DELETE RESTRICT: нельзя удалить клиента или автомобиль, если на них ссылаются заявки.</text>
+  <text x="30" y="428" class="note">Частичный уникальный индекс uq_test_drive_requests_active_slot (car_id, scheduled_at) WHERE status IN ('NEW','CONFIRMED').</text>
+  <text x="30" y="456" class="note"><tspan class="pk">PK</tspan> — первичный ключ;  <tspan class="fk">FK</tspan> — внешний ключ;  NN — NOT NULL;  UQ — UNIQUE;  CK — CHECK (ограничение допустимых значений);  ||—o&lt; — «один к нулю или многим».</text>
+</svg>
