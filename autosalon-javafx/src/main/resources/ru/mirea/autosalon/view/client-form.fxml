@@ -37,6 +37,6 @@
     </GridPane>
 
     <Label text="* — обязательные поля. Тест-драйв доступен клиентам от 18 лет. Телефон, email и номер ВУ не должны повторяться."
-           styleClass="hint" wrapText="true"/>
-    <Label fx:id="errorLabel" styleClass="form-error" wrapText="true" maxWidth="Infinity"/>
+           styleClass="hint" wrapText="true" minHeight="-Infinity"/>
+    <Label fx:id="errorLabel" styleClass="form-error" wrapText="true" maxWidth="Infinity" minHeight="-Infinity"/>
 </VBox>

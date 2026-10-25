@@ -25,6 +25,7 @@ import ru.mirea.autosalon.exception.ValidationException;
 public final class Alerts {
 
     private static final Logger LOG = LoggerFactory.getLogger(Alerts.class);
+    private static final double CONTENT_WIDTH = 520;
 
     private Alerts() {
     }
@@ -96,7 +97,10 @@ public final class Alerts {
         // Label с переносом строк вместо contentText: длинные сообщения не обрезаются
         Label content = new Label(text);
         content.setWrapText(true);
-        content.setMaxWidth(520);
+        // Без prefWidth окно растягивается на всю длину строки, и текст уходит за край экрана
+        content.setPrefWidth(CONTENT_WIDTH);
+        content.setMaxWidth(CONTENT_WIDTH);
+        content.setMinHeight(Region.USE_PREF_SIZE);
         alert.getDialogPane().setContent(content);
         alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         alert.getDialogPane().getStylesheets().add(ViewLoader.stylesheet());

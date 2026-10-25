@@ -1,5 +1,6 @@
 package ru.mirea.autosalon.ui;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -58,8 +59,9 @@ public final class FormDialog {
         saveButton.addEventFilter(ActionEvent.ACTION, event -> {
             if (!controller.save()) {
                 event.consume();
-                // Под формой появилось сообщение об ошибке: увеличиваем окно, чтобы текст не обрезался
-                pane.getScene().getWindow().sizeToScene();
+                // Под формой появилось сообщение об ошибке: после перерасчёта разметки увеличиваем окно,
+                // чтобы текст не обрезался
+                Platform.runLater(() -> pane.getScene().getWindow().sizeToScene());
             }
         });
 

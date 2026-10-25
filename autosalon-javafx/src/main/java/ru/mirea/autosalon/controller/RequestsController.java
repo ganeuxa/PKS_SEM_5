@@ -8,6 +8,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.ComboBox;
@@ -264,6 +265,9 @@ public class RequestsController {
                 + request.getCar().getTitle() + "\nТекущий статус: " + current.getDisplayName());
         dialog.setContentText("Новый статус:");
         dialog.getDialogPane().getStylesheets().add(ViewLoader.stylesheet());
+        // Стандартные кнопки ChoiceDialog подписаны по-английски
+        ((Button) dialog.getDialogPane().lookupButton(ButtonType.OK)).setText("Сменить статус");
+        ((Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL)).setText("Отмена");
 
         dialog.showAndWait().ifPresent(choice -> {
             try {

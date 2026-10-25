@@ -43,6 +43,6 @@
                   GridPane.rowIndex="4" GridPane.columnIndex="1"/>
     </GridPane>
 
-    <Label fx:id="rulesLabel" styleClass="hint" wrapText="true"/>
-    <Label fx:id="errorLabel" styleClass="form-error" wrapText="true" maxWidth="Infinity"/>
+    <Label fx:id="rulesLabel" styleClass="hint" wrapText="true" minHeight="-Infinity"/>
+    <Label fx:id="errorLabel" styleClass="form-error" wrapText="true" maxWidth="Infinity" minHeight="-Infinity"/>
 </VBox>

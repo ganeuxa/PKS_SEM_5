@@ -77,6 +77,8 @@ public class ClientsController {
     @FXML
     private Label requestsTitle;
     @FXML
+    private Label requestsPlaceholder;
+    @FXML
     private TableView<TestDriveRequest> requestTable;
     @FXML
     private TableColumn<TestDriveRequest, Long> requestIdColumn;
@@ -214,9 +216,11 @@ public class ClientsController {
     private void showClientRequests(Client client) {
         if (client == null) {
             requestsTitle.setText("Заявки клиента: выберите клиента в таблице");
+            requestsPlaceholder.setText("Выберите клиента в таблице выше");
             clientRequests.clear();
             return;
         }
+        requestsPlaceholder.setText("У клиента нет заявок на тест-драйв");
         try {
             List<TestDriveRequest> requests = context.requestService().filterByClient(client.getId());
             clientRequests.setAll(requests);

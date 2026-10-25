@@ -58,7 +58,7 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN"/>
                 </columnResizePolicy>
                 <placeholder>
-                    <Label text="У клиента нет заявок на тест-драйв"/>
+                    <Label fx:id="requestsPlaceholder" text="Выберите клиента в таблице выше"/>
                 </placeholder>
                 <columns>
                     <TableColumn fx:id="requestIdColumn" text="№" prefWidth="50" styleClass="column-number"/>
