@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Вкладка «Статистика»: главные показатели, полная таблица показателей и графики -->
+<ScrollPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.mirea.autosalon.controller.StatisticsController"
+            fitToWidth="true" styleClass="details-scroll">
+    <VBox styleClass="tab-content" spacing="14">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Статистика автосалона" styleClass="section-title"/>
+            <Label fx:id="generatedAtLabel" styleClass="muted"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Пересчитать" onAction="#handleRefresh" styleClass="button-primary"/>
+        </HBox>
+
+        <FlowPane fx:id="cardsPane" hgap="12" vgap="12"/>
+
+        <HBox spacing="14">
+            <TableView fx:id="indicatorTable" prefHeight="440" prefWidth="520" minWidth="380">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="indicatorNameColumn" text="Показатель" prefWidth="330"/>
+                    <TableColumn fx:id="indicatorValueColumn" text="Значение" prefWidth="170"/>
+                </columns>
+            </TableView>
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <PieChart fx:id="statusChart" title="Заявки по статусам" prefHeight="300" legendVisible="false"/>
+                <BarChart fx:id="brandChart" title="Заявки по маркам автомобилей" prefHeight="280"
+                          legendVisible="false">
+                    <xAxis>
+                        <CategoryAxis/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis minorTickVisible="false" tickUnit="1"/>
+                    </yAxis>
+                </BarChart>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

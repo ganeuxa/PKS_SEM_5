@@ -4,6 +4,9 @@
 .vscode/
 out/
 
+# Локальные настройки Claude Code
+.claude/
+
 # Системные файлы
 Thumbs.db
 Desktop.ini

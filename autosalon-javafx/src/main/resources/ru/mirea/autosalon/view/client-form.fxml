@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Форма клиента автосалона -->
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.mirea.autosalon.controller.ClientFormController"
+      styleClass="form" spacing="12" prefWidth="520">
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="150"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="ФИО *" GridPane.rowIndex="0"/>
+        <TextField fx:id="fullNameField" promptText="Иванов Иван Иванович"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Телефон *" GridPane.rowIndex="1"/>
+        <TextField fx:id="phoneField" promptText="+79161234567 или 8 (916) 123-45-67"
+                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Email" GridPane.rowIndex="2"/>
+        <TextField fx:id="emailField" promptText="Необязательно" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Дата рождения *" GridPane.rowIndex="3"/>
+        <DatePicker fx:id="birthDatePicker" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Номер ВУ *" GridPane.rowIndex="4"/>
+        <TextField fx:id="licenseField" promptText="10 цифр, например 77 12 345678"
+                   GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <Label text="* — обязательные поля. Тест-драйв доступен клиентам от 18 лет. Телефон, email и номер ВУ не должны повторяться."
+           styleClass="hint" wrapText="true"/>
+    <Label fx:id="errorLabel" styleClass="form-error" wrapText="true" maxWidth="Infinity"/>
+</VBox>

@@ -5,8 +5,9 @@
 | Работа | Папка |
 |---|---|
 | КР 1. Консольная информационная система (Java 17, JDBC, PostgreSQL, Apache POI) | [autosalon-testdrive](autosalon-testdrive) |
+| КР 2. Настольное приложение (Java 21, JavaFX 21, FXML, CSS, JDBC к базе КР 1, Docker) | [autosalon-javafx](autosalon-javafx) |
 
-Следующие работы (КР 2 — JavaFX, КР 3 — Spring + REST API, КР 4 — Android) развивают ту же систему
+Следующие работы (КР 3 — Spring + REST API, КР 4 — Android) развивают ту же систему
 с той же предметной областью и базой данных.
 
 ## Как запустить КР 1

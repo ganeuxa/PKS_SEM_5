@@ -1,0 +1,16 @@
+# Сборка Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code / Eclipse
+.vscode/
+.classpath
+.project
+.settings/
+
+# Локальные настройки подключения рядом с проектом
+/database.properties

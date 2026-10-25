@@ -1,0 +1,299 @@
+/*
+ * Оформление приложения «Автосалон». Цвета заданы переменными в .root,
+ * поэтому основную палитру можно поменять в одном месте.
+ */
+.root {
+    -color-primary: #1f5fae;
+    -color-primary-dark: #174a88;
+    -color-danger: #c0392b;
+    -color-danger-dark: #992d22;
+    -color-surface: #ffffff;
+    -color-background: #f3f5f8;
+    -color-border: #d5dbe3;
+    -color-text: #1e2733;
+    -color-muted: #66758a;
+
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    -fx-base: #eef1f5;
+    -fx-accent: -color-primary;
+    -fx-focus-color: -color-primary;
+    -fx-faint-focus-color: rgba(31, 95, 174, 0.15);
+    -fx-text-base-color: -color-text;
+}
+
+.root-pane {
+    -fx-background-color: -color-background;
+}
+
+/* ---------- Заголовок окна ---------- */
+.app-header {
+    -fx-background-color: linear-gradient(to right, #173c6b, #1f5fae);
+    -fx-padding: 12 20 12 20;
+}
+
+.app-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.app-subtitle {
+    -fx-text-fill: rgba(255, 255, 255, 0.8);
+}
+
+.connection-label {
+    -fx-text-fill: white;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 12;
+}
+
+.connection-ok {
+    -fx-background-color: rgba(46, 160, 67, 0.55);
+}
+
+.connection-failed {
+    -fx-background-color: rgba(192, 57, 43, 0.85);
+}
+
+.button-header {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-radius: 4;
+}
+
+.button-header:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.28);
+}
+
+/* ---------- Вкладки и контейнеры ---------- */
+.main-tabs > .tab-header-area {
+    -fx-padding: 6 12 0 12;
+}
+
+.main-tabs .tab {
+    -fx-padding: 4 14 4 14;
+}
+
+.main-tabs .tab:selected .tab-label {
+    -fx-font-weight: bold;
+}
+
+.tab-content {
+    -fx-padding: 12;
+    -fx-background-color: -color-background;
+}
+
+.toolbar,
+.filter-panel,
+.related-panel,
+.details-panel {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 6;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 6;
+    -fx-padding: 8 10 8 10;
+}
+
+.details-panel {
+    -fx-padding: 14;
+    -fx-border-width: 0;
+}
+
+.details-scroll,
+.details-scroll > .viewport {
+    -fx-background-color: -color-background;
+}
+
+.details-title,
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.details-key {
+    -fx-text-fill: -color-muted;
+    -fx-font-weight: bold;
+}
+
+.muted,
+.hint {
+    -fx-text-fill: -color-muted;
+}
+
+.hint {
+    -fx-font-size: 12px;
+}
+
+/* ---------- Кнопки ---------- */
+.button {
+    -fx-background-radius: 4;
+    -fx-padding: 5 12 5 12;
+    -fx-cursor: hand;
+}
+
+.button-primary {
+    -fx-background-color: -color-primary;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button-primary:hover {
+    -fx-background-color: -color-primary-dark;
+}
+
+.button-danger {
+    -fx-background-color: -color-danger;
+    -fx-text-fill: white;
+}
+
+.button-danger:hover {
+    -fx-background-color: -color-danger-dark;
+}
+
+.button-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: -color-primary;
+    -fx-underline: true;
+    -fx-padding: 5 4 5 4;
+}
+
+.button:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* ---------- Таблицы ---------- */
+.table-view {
+    -fx-background-color: -color-surface;
+    -fx-border-color: -color-border;
+    -fx-table-cell-border-color: #e7ebf0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: #e9eef5;
+    -fx-border-color: transparent -color-border -color-border transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #34445a;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #fafbfd;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -color-primary;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+.column-number {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+/* Цветные статусы заявки (класс ставит FxSupport.statusCell) */
+.status-new {
+    -fx-text-fill: #1f5fae;
+    -fx-font-weight: bold;
+}
+
+.status-confirmed {
+    -fx-text-fill: #1e8449;
+    -fx-font-weight: bold;
+}
+
+.status-completed {
+    -fx-text-fill: #5d6d7e;
+}
+
+.status-cancelled {
+    -fx-text-fill: #a04000;
+}
+
+.status-no-show {
+    -fx-text-fill: #c0392b;
+}
+
+/* ---------- Формы и состояния ошибки ---------- */
+.form {
+    -fx-padding: 4 4 0 4;
+}
+
+.form-dialog > .header-panel {
+    -fx-background-color: #e9eef5;
+}
+
+.form-dialog > .header-panel .label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.text-field,
+.text-area,
+.combo-box,
+.date-picker {
+    -fx-background-radius: 4;
+}
+
+.field-error,
+.field-error > .text-field,
+.field-error.text-area .content {
+    -fx-border-color: -color-danger;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 4;
+    -fx-background-color: #fdf0ef;
+}
+
+.form-error {
+    -fx-text-fill: -color-danger;
+    -fx-background-color: #fdf0ef;
+    -fx-border-color: #f1b8b2;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 6 8 6 8;
+}
+
+/* ---------- Статистика ---------- */
+.stat-card {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 8;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 8;
+    -fx-padding: 12 16 12 16;
+    -fx-pref-width: 200;
+    -fx-min-height: 92;
+    -fx-spacing: 4;
+}
+
+.stat-value {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-primary;
+}
+
+.stat-caption {
+    -fx-text-fill: -color-muted;
+}
+
+.chart {
+    -fx-background-color: -color-surface;
+    -fx-background-radius: 6;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 6;
+}
+
+.chart-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: -color-primary;
+}

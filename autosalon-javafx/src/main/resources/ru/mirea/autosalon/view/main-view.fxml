@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Главное окно: заголовок с состоянием подключения к БД и вкладки разделов системы -->
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.mirea.autosalon.controller.MainController"
+            styleClass="root-pane">
+    <top>
+        <HBox styleClass="app-header" alignment="CENTER_LEFT" spacing="16">
+            <VBox spacing="2">
+                <Label text="Автосалон" styleClass="app-title"/>
+                <Label text="Заявки на тест-драйв автомобилей" styleClass="app-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="connectionLabel" text="● Подключение к базе данных..." styleClass="connection-label"/>
+            <Button text="Переподключиться" onAction="#handleReconnect" styleClass="button-header"/>
+            <Button text="Статистика" onAction="#handleShowStatistics" styleClass="button-header"/>
+        </HBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" styleClass="main-tabs">
+            <Tab text="Заявки на тест-драйв">
+                <fx:include fx:id="requests" source="requests-tab.fxml"/>
+            </Tab>
+            <Tab text="Клиенты">
+                <fx:include fx:id="clients" source="clients-tab.fxml"/>
+            </Tab>
+            <Tab fx:id="statisticsTab" text="Статистика">
+                <fx:include fx:id="statistics" source="statistics-tab.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+    <padding>
+        <Insets/>
+    </padding>
+</BorderPane>

@@ -1,0 +1,29 @@
+# База данных КР 1 (autosalon) в Docker.
+# Запуск:    docker compose up -d --wait
+# Остановка: docker compose down          (данные сохраняются в volume autosalon-data)
+# Сброс к тестовым данным: docker compose down -v, затем снова up
+#
+# При первом запуске контейнер создаёт базу autosalon и выполняет скрипт КР 1 sql/02_schema_and_data.sql.
+# С компьютера база доступна на порту 55433 (чтобы не конфликтовать с локальным PostgreSQL на 5432):
+#   db.url=jdbc:postgresql://localhost:55433/autosalon  (см. src/main/resources/database.properties)
+services:
+  autosalon-db:
+    image: postgres:18
+    container_name: autosalon-db
+    environment:
+      POSTGRES_DB: autosalon
+      POSTGRES_USER: autosalon_app
+      POSTGRES_PASSWORD: autosalon_app
+    ports:
+      - "55433:5432"
+    volumes:
+      - autosalon-data:/var/lib/postgresql
+      - ../autosalon-testdrive/sql/02_schema_and_data.sql:/docker-entrypoint-initdb.d/02_schema_and_data.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U autosalon_app -d autosalon"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  autosalon-data:
